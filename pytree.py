@@ -35,7 +35,7 @@ def tree(startpath, indentation=""):
 def sort(file): 
     punctuation = '_,;:?"\''
     return re.sub('[^A-Za-z0-9]+', '', file).lower()
-
+    
 if len(sys.argv) == 1:
     print (".")
     tree(".")
