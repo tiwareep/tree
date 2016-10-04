@@ -21,7 +21,7 @@ def tree(startpath, indentation=""):
             if i == len(files) - 1:
                 tree(subdir, indentation + "    ")
             else:
-                tree(subdir, indentation + "|   ")
+                tree(subdir, indentation + "│   ")
         else:
             numFile += 1
 
