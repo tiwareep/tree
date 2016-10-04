@@ -8,18 +8,12 @@ numFile = 0
 
 
 def tree(startpath, indentation=""):
-    files = []
-    for i in os.listdir(startpath):
-        if(i[0] != "."):
-            files.append(i)
-    files = sorted(files, key=sort)
-
+    files = sortedfile(startpath)
     for i in range(len(files)):
         if i == len(files) - 1:
             print(indentation + "`-- " + files[i])
         else:
             print(indentation + "|-- " + files[i])
-
         subdir = startpath + "/" + files[i]
         global numDir, numFile
         if os.path.isdir(subdir):
@@ -30,6 +24,14 @@ def tree(startpath, indentation=""):
                 tree(subdir, indentation + "|   ")
         else:
             numFile += 1
+
+
+def sortedfile(startpath):
+    files = []
+    for i in os.listdir(startpath):
+        if(i[0] != "."):
+            files.append(i)
+    return sorted(files, key=sort)
 
 
 def sort(file):
