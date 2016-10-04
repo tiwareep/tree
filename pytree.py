@@ -6,8 +6,10 @@ import re
 numDir = 0
 numFile = 0
 
+
 def tree(startpath, indentation=""):
     files = []
+    global numFile, numDir
     for i in os.listdir(startpath):
         if(i[0] != "."):
             files.append(i)
@@ -21,9 +23,6 @@ def tree(startpath, indentation=""):
 
         subdir = startpath + "/" + files[i]
 
-        global numDir
-    	global numFile
-
         if os.path.isdir(subdir):
             numDir += 1
             if i == len(files) - 1:
@@ -32,6 +31,7 @@ def tree(startpath, indentation=""):
                 tree(subdir, indentation + "|   ")
         else:
             numFile += 1
+
 
 def sort(file):
     punctuation = '_,;:?"\''
