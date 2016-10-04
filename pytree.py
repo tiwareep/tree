@@ -9,7 +9,6 @@ numFile = 0
 
 def tree(startpath, indentation=""):
     files = []
-    global numFile, numDir
     for i in os.listdir(startpath):
         if(i[0] != "."):
             files.append(i)
@@ -22,7 +21,7 @@ def tree(startpath, indentation=""):
             print(indentation + "|-- " + files[i])
 
         subdir = startpath + "/" + files[i]
-
+        global numDir, numFile
         if os.path.isdir(subdir):
             numDir += 1
             if i == len(files) - 1:
