@@ -11,9 +11,9 @@ def tree(startpath, indentation=""):
     files = sortedfile(startpath)
     for i in range(len(files)):
         if i == len(files) - 1:
-            print(indentation + "`-- " + files[i])
+            print(indentation + "└── " + files[i])
         else:
-            print(indentation + "|-- " + files[i])
+            print(indentation + "├── " + files[i])
         subdir = startpath + "/" + files[i]
         global numDir, numFile
         if os.path.isdir(subdir):
